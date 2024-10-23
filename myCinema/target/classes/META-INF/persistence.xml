@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+                                 classpath:/META-INF/persistence_2_0.xsd"
+             version="2.0">
+
+    <!-- Persistence Unit 정의 -->
+    <persistence-unit name="myJpaUnit" transaction-type="RESOURCE_LOCAL">
+        <!-- Oracle JDBC 드라이버 설정 -->
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <class>com.example.entity.YourEntity</class> <!-- 엔티티 클래스 -->
+
+        <!-- JPA 속성 설정 -->
+        <properties>
+            <!-- Hibernate Dialect 설정 (Oracle) -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.Oracle12cDialect"/>
+            
+            <!-- DDL 자동 생성 정책 -->
+            <!-- 스키마 자동 업데이트 설정 -->
+            <property name="hibernate.hbm2ddl.auto" value="update"/> <!-- update, validate, create 등 설정 가능 -->  
+            
+            <!-- SQL 쿼리 출력 -->
+            <property name="hibernate.show_sql" value="true"/> <!-- SQL 로그 출력 -->
+            <property name="hibernate.format_sql" value="true"/>
+            
+            <!-- Oracle 데이터베이스 연결 정보 -->
+            <property name="javax.persistence.jdbc.driver" value="oracle.jdbc.OracleDriver"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@localhost:1521/xe"/> <!-- 오라클 DB URL -->
+            <property name="javax.persistence.jdbc.user" value="mymovie"/> <!-- DB 사용자명 -->
+            <property name="javax.persistence.jdbc.password" value="java"/> <!-- DB 비밀번호 -->
+        </properties>
+    </persistence-unit>
+</persistence>

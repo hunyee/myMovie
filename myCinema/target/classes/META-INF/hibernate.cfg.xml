@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hibernate-configuration>
+    <session-factory>
+        <!-- Oracle Database connection settings -->
+        <property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+        <property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:XE</property>
+        <property name="hibernate.connection.username">your_username</property>
+        <property name="hibernate.connection.password">your_password</property>
+
+        <!-- Hibernate Dialect for Oracle -->
+        <property name="hibernate.dialect">org.hibernate.dialect.Oracle12cDialect</property>
+
+        <!-- Show generated SQL in console -->
+        <property name="hibernate.show_sql">true</property>
+
+        <!-- Automatically update the schema -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+
+        <!-- Connection pool settings -->
+        <property name="hibernate.c3p0.min_size">5</property>
+        <property name="hibernate.c3p0.max_size">20</property>
+
+        <!-- Mapping the Movie class -->
+        <mapping class="com.example.Movie" />
+    </session-factory>
+</hibernate-configuration>

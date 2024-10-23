@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.ckdgns.users.dao.UserDAO">
+
+    <insert id="register" parameterType="kr.co.ckdgns.vo.Users">
+        INSERT INTO users (username, password, role) VALUES (#{username}, #{password}, #{role})
+    </insert>
+
+    <select id="findByUsername" parameterType="String" resultType="kr.co.ckdgns.vo.Users">
+        SELECT * FROM users WHERE username = #{username}
+    </select>
+    
+    <select id="findByUserId" parameterType="String" resultType="kr.co.ckdgns.vo.Users">
+        SELECT user_id, user_name, user_password, user_email, user_phone, role
+        FROM users
+        WHERE user_id = #{userId}
+    </select>
+
+</mapper>
